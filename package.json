@@ -1,0 +1,20 @@
+{
+  "name": "vue-tutorial",
+  "version": "1.0.0",
+  "description": "vue js\r ## tutorial01 Data Binding 绑定的两种方法：单向与双向\r ## tutorial02 Render a List 渲染列表\r ## tutorial03 Handle User Input 事件处理\r ## tutorial04 All Together Now 综合应用",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ivanwangcy/vue-tutorial.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ivanwangcy/vue-tutorial/issues"
+  },
+  "homepage": "https://github.com/Ivanwangcy/vue-tutorial#readme"
+}
