@@ -2,6 +2,7 @@
   <div id="app">
     <img class="logo" src="./assets/logo.png">
     <hello></hello>
+    <world></world>
     <p>
       Welcome to your Vue.js app!
     </p>
@@ -24,10 +25,12 @@
 
 <script>
 import Hello from './components/Hello'
+import World from './components/World'
 
 export default {
   components: {
-    Hello
+    Hello,
+    World
   }
 }
 </script>
