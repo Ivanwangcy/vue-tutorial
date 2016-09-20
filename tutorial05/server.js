@@ -22,8 +22,8 @@ const html = (() => {
   const style = isProd ? '<link rel ="stylesheet" href="/dist/styles.css">' : '';
 
   return {
-    head: template.slice(0, i).replace('{{ STYLE }}', style),
-    tail: template.slice(i + '{{ APP }}'.length)
+    head: template.slice(0, index).replace('{{ STYLE }}', style),
+    tail: template.slice(index + '{{ APP }}'.length)
   };
 })();
 
@@ -69,8 +69,25 @@ app.get('*', (req, res) => {
           `<script>window.__INITIAL_STATE__=${
             serialize(context.initialState, { isJSON: true })
           }</script>`
-        )
+        );
       }
+      firstChunk = false;
     }
+    console.log("chunk");
+    res.write(chunk);
+  });
+
+  renderStream.on('end', () => {
+    res.end(html.tail);
+    console.log(`wholerequest:${Date.now() - s}ms`);
+  });
+
+  renderStream.on('error', err => {
+    throw err;
+  });
+
+  const port = process.env.PORT || 8080;
+  app.listen(port, () => {
+    console.log(`server started at localhost: ${port}`);
   });
 });
