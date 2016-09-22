@@ -1,6 +1,6 @@
 module.exports = {
   postcss: [
-    require('auotoprefixer')({
+    require('autoprefixer')({
       browsers: ['last 3 versions']
     })
   ]
