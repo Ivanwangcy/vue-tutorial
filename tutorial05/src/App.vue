@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
   <div id="app">
     <div class="header">
       <div class="inner">
@@ -10,13 +10,15 @@
         <router-link to="/show">Show </router-link>
         <router-link to="/ask">Ask </router-link>
         <router-link to="/job">Job </router-link>
-        <a class="github"></a>
+        <a class="github" href="https://github.com/vuejs/vue-hackernews-2.0" target="_blank">
+          Built with Vue.js
+        </a>
       </div>
     </div>
+    <transition name="fade" mode="out-in">
+      <router-view class="view"><router-view>
+    </transition>
   </div>
-  <transition name="fade" mode="out-in">
-    <router-view class="view"><router-view>
-  </transition>
 </template>
 
 
@@ -88,7 +90,7 @@
 
   @media (max-width 860px)
     .header .inner
-  padding 15px 30px
+      padding 15px 30px
   @media (max-width 600px)
     body
       font-size 14px

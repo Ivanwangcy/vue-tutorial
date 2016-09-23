@@ -46,7 +46,6 @@ function createRenderer(bundle) {
     })
   });
 }
-
 app.use('/dist', express.static(resolve('./dist')));
 app.use(favicon(resolve('./src/assets/logo.png')));
 app.get('*', (req, res) => {
@@ -54,7 +53,7 @@ app.get('*', (req, res) => {
     return res.end('waiting for compilation');
   }
 
-  var s = Data.now();
+  var s = Date.now();
   const context = { url: req.url };
   const renderStream = renderer.renderToStream(context);
   let firstChunk = true;
@@ -85,9 +84,10 @@ app.get('*', (req, res) => {
   renderStream.on('error', err => {
     throw err;
   });
+});
 
-  const port = process.env.PORT || 8080;
-  app.listen(port, () => {
-    console.log(`server started at localhost: ${port}`);
-  });
+
+const port = process.env.PORT || 8888;
+app.listen(port, () => {
+  console.log(`server started at localhost: ${port}`);
 });
