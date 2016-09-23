@@ -66,30 +66,37 @@
       font-size .9em
       margin 0
       float right
-.logo
-width 24px
-margin-right 10px
-display inline-block
-vertical-align middle
-.view
-max-width 800px
-margin 0 auto
-position relative
-.fade-enter-active, .fade-leave-active
-transition all .2s ease
-.fade-enter, .fade-leave-active
-opacity 0
-@media (max-width 860px)
-.header .inner
-padding 15px 30px
-@media (max-width 600px)
-body
-font-size 14px
-.header
-.inner
-  padding 15px
-a
-  margin-right 1em
-.github
-  display none
+
+  .logo
+    width 24px
+    margin-right 10px
+    display inline-block
+    vertical-align middle
+
+  .view
+    max-width 800px
+    margin 0 auto
+    position relative
+
+
+  .fade-enter-active, .fade-leave-active
+    transition all .2s ease
+
+  .fade-enter, .fade-leave-active
+    opacity 0
+
+
+  @media (max-width 860px)
+    .header .inner
+  padding 15px 30px
+  @media (max-width 600px)
+    body
+      font-size 14px
+    .header
+    .inner
+      padding 15px
+    a
+      margin-right 1em
+    .github
+      display none
 </style>
