@@ -18,7 +18,7 @@ export default context => {
   // which is resolved when the action is complete and store state has been
   // updated.
   return Promise.all(router.getMatchedComponents().map(component => {
-    if(copmonent.preFetch) {
+    if(component.preFetch) {
       return component.preFetch(store);
     }
   })).then(() => {
@@ -30,6 +30,6 @@ export default context => {
     // store to pick-up the server-side state without having to duplicate
     // the initial data fetching on the client.
     context.initialState = store.state;
-    return app; 
+    return app;
   });
 };
