@@ -5,4 +5,4 @@ vue js
 ## tutorial02 Render a List 渲染列表
 ## tutorial03 Handle User Input 事件处理
 ## tutorial04 All Together Now 综合应用
-## tutorial05 Use Vue2.0
+## tutorial05 Vue2.0 实例 vue-hackernews-2.0
