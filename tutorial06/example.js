@@ -26,16 +26,16 @@ var vm = new Vue({
       },
       on: { // DOM 事件 监听
         click: (e, data) => {
-          console.log('click', e, data);
+          console.log('click');
         },
         mouseup: () => {
-          console.log('mouseup', this.data);
+          console.log('mouseup');
         },
         mousedown: () => {
-          console.log('mousedown', this.data);
+          console.log('mousedown');
         },
         touchstart: () => {
-          console.log('touchstart', this.data);
+          console.log('touchstart');
         }
       },
       hook: { // 钩子
@@ -46,7 +46,7 @@ var vm = new Vue({
     }
     return (
       <div class="container" style={styles} href="#" {...data}>
-        <Counter data="2"></Counter>
+        <Counter></Counter>
         Hello Vue 2.0 jsx
       </div>
     )
