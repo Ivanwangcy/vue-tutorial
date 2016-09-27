@@ -1,7 +1,16 @@
 import Vue from 'vue';
+import Counter from './components/Counter';
+
+
+// 样式
+var styles = {
+  fontSize: '16px',
+  color: 'red',
+  backgroundColor: 'blue'
+};
 
 var vm = new Vue({
-  el: '#app',
+  // el: '#app', // 使用 $mount 代替
   data: {
     msg: 'Hello JSX'
   },
@@ -13,23 +22,34 @@ var vm = new Vue({
   render (h) {
     const data = {
       attrs: {
-        id: 'hehe'
+        id: 'container' // 属性
       },
-      on: {
-        click: () => {
-          console.log('click')
+      on: { // DOM 事件 监听
+        click: (e, data) => {
+          console.log('click', e, data);
+        },
+        mouseup: () => {
+          console.log('mouseup', this.data);
+        },
+        mousedown: () => {
+          console.log('mousedown', this.data);
+        },
+        touchstart: () => {
+          console.log('touchstart', this.data);
         }
       },
-      props: {
-        innerHTML: 'hihihi'
-      },
-      hook: {
+      hook: { // 钩子
         insert: () => {
-          console.log('insert')
+          console.log('insert dom')
         }
       }
     }
-    return <div class="container" style="font-size: 25px" href="hoho" {...data}>Hello Vue 2.0 jsx </div>
+    return (
+      <div class="container" style={styles} href="#" {...data}>
+        <Counter data="2"></Counter>
+        Hello Vue 2.0 jsx
+      </div>
+    )
     // return (
     //   <div id="hi">
     //     <span
@@ -43,3 +63,5 @@ var vm = new Vue({
     // )
   }
 })
+
+vm.$mount("#app")
