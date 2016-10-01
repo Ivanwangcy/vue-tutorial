@@ -26,8 +26,8 @@ export default {
   render(h) {
 
     // 渲染列表
-    var todolist = this.todos.map((value) => {
-      return <li>{value}</li>;
+    var todolist = this.todos.map((value, index) => {
+      return <li >{value}</li>;
     });
     return (
       // 单向绑定
