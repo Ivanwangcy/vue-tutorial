@@ -1,43 +1,26 @@
 import Vue from 'vue';
+import { mapGetters, mapActions } from 'vuex';
+
 
 export default {
-  data: function(){ // 数据
-    return {
-      counter: 5,
-      todos: [
-        'Learn javascript',
-        'Learn ES6',
-        'Learn VUE'
-      ]
-    }
-  },
-  computed: {
-    evenOrOdd (){
-      return this.counter % 2 == 0 ? 'Even' : 'Odd';
-    }
-  },
-  methods: {
-    handleClick() {
-      console.log(this.counter, this.props);
-      this.counter++;
-    }
-  },
-  // h = this.$createElement h 参数是必需的
+  computed: mapGetters([
+    'evenOrOdd'
+  ]),
+  methods: mapActions([
+    'increment',
+    'decrement',
+    'incrementIfOdd',
+    'incrementAsync'
+  ]),
   render(h) {
-
-    // 渲染列表
-    var todolist = this.todos.map((value, index) => {
-      return <li >{value}</li>;
-    });
     return (
-      // 单向绑定
-      <div on-click={this.handleClick}>
-        {this.counter}, count is { this.evenOrOdd }
-        <ul>
-          {todolist}
-        </ul>
+      <div class={{ a: true, b: true , c: false}}>
+        Clicked: { this.$store.state.count } times, count is { this.evenOrOdd }.
+        <button on-click={ this.increment }>+</button>
+        <button on-click={ this.decrement }>-</button>
+        <button on-click={ this.incrementIfOdd }>Increment if odd</button>
+        <button on-click={ this.incrementAsync }>Increment Async</button>
       </div>
-
     )
   }
 }

@@ -1,15 +1,16 @@
 import Vue from 'vue';
 import Counter from './components/Counter';
-
+import store from './store';
 
 // 样式
 var styles = {
   fontSize: '16px',
   color: 'red',
-  backgroundColor: 'blue'
+  backgroundColor: '#93d8f4'
 };
 
 var vm = new Vue({
+  store,
   // el: '#app', // 使用 $mount 代替
   data: {
     msg: 'Hello JSX'
@@ -47,20 +48,9 @@ var vm = new Vue({
     return (
       <div class="container" style={styles} href="#" {...data}>
         <Counter></Counter>
-        Hello Vue 2.0 jsx
+        {/* Hello Vue 2.0 jsx */}
       </div>
     )
-    // return (
-    //   <div id="hi">
-    //     <span
-    //       class={{ a: true, b: true }}
-    //       style={{fontSize: '15px'}}
-    //       on-click={this.hello}
-    //       {...data}>
-    //       {this.msg}
-    //     </span>
-    //   </div>
-    // )
   }
 })
 
