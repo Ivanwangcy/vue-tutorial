@@ -5,7 +5,9 @@ import './style.css';
 export default {
   computed: mapGetters([
     'evenOrOdd',
-    'isOdd'
+    'isOdd',
+    'counter',
+    'recentHistory'
   ]),
   methods: mapActions([
     'increment',
@@ -16,11 +18,14 @@ export default {
   render(h) {
     return (
       <div class={{ odd: this.isOdd }} style={{ padding: '20px' }}>
-        Clicked: { this.$store.state.count } times, count is { this.evenOrOdd }.
+        Clicked: { this.counter } times, count is { this.evenOrOdd }.
         <button on-click={ this.increment }>+</button>
         <button on-click={ this.decrement }>-</button>
         <button on-click={ this.incrementIfOdd }>Increment if odd</button>
         <button on-click={ this.incrementAsync }>Increment Async</button>
+        <div>
+          <div>Recent History (last 5 entries): { this.recentHistory }</div>
+        </div>
       </div>
     )
   }
