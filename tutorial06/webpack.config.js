@@ -10,6 +10,11 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel',
         exclude: /node_module/
+      },
+      {
+        test: /\.css$/,
+        loader: 'style!css',
+        exclude: /node_module/
       }
     ]
   }

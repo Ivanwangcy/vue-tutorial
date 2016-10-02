@@ -1,10 +1,11 @@
 import Vue from 'vue';
 import { mapGetters, mapActions } from 'vuex';
-
+import './style.css';
 
 export default {
   computed: mapGetters([
-    'evenOrOdd'
+    'evenOrOdd',
+    'isOdd'
   ]),
   methods: mapActions([
     'increment',
@@ -14,7 +15,7 @@ export default {
   ]),
   render(h) {
     return (
-      <div class={{ a: true, b: true , c: false}}>
+      <div class={{ odd: this.isOdd }} style={{ padding: '20px' }}>
         Clicked: { this.$store.state.count } times, count is { this.evenOrOdd }.
         <button on-click={ this.increment }>+</button>
         <button on-click={ this.decrement }>-</button>

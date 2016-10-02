@@ -26,7 +26,7 @@ const actions = {
       commit('increment')
     }
   },
-  incrementAsync: ({ commit }){
+  incrementAsync: ({ commit }) => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         commit('increment');
@@ -38,7 +38,8 @@ const actions = {
 }
 
 const getters = {
-  evenOrOdd: state => state % 2 === 0 ? 'even' : 'odd'
+  evenOrOdd: state => state.count % 2 === 0 ? 'even' : 'odd',
+  isOdd: state => state.count % 2 === 0 ? false : true
 }
 
 export default new Vuex.Store({
