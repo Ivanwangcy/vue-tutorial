@@ -1,6 +1,6 @@
-# y
+# tutorial07
 
-> y
+> A Vue.js project
 
 ## Build Setup
 

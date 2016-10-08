@@ -1,19 +1,16 @@
 <template>
   <div id="app">
-    <img class="logo" src="./assets/logo.png">
-    <h1><i class="fa fa-camera-retro"></i>{{ msg }}</h1>
+    <transition name="fade" mode="out-in">
+      <router-view class="view"></router-view>
+    </transition>
+
+    <div class="footer">
+      <router-link to="/home"><i class="fa fa-desktop"></i></router-link>
+      <router-link to="/about"><i class="fa fa-book"></i></router-link>
+    </div>
   </div>
 </template>
 
-<script>
-export default {
-  data () {
-    return {
-      msg: 'Welcome to your Vue.js app!'
-    }
-  }
-}
-</script>
 
 <style lang="sass">
   @import "./style.scss"

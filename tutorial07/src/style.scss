@@ -1,24 +1,37 @@
-html {
-  height: 100%;
+body {
+  margin: 0;
 
-  body {
+  #app {
     display: flex;
     align-items: center;
-    justify-content: center;
-    height: 100%;
-    margin: 0;
+    height: 100vh;
+    // justify-content: center;
+    justify-content: space-between;
+    flex-flow: column;
+    color: #2c3e50;
+    font-family: Source Sans Pro, Helvetica, sans-serif;
+    text-align: center;
 
-
-    #app {
-      color: #2c3e50;
-      margin-top: -100px;
-      max-width: 600px;
-      font-family: Source Sans Pro, Helvetica, sans-serif;
-      text-align: center;
-
-      .logo {
-        width: 200px;
-        height: 200px;
+    .logo {
+      width: 200px;
+      height: 200px;
+    }
+    .view{
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-flow: column;
+    }
+    .footer{
+      width: 100vw;
+      height: 50px;
+      line-height: 50px;
+      font-size: 35px;
+      display: inline-flex;
+      border-top: 1px solid #072375;
+      a{
+        flex:1;
       }
     }
   }
