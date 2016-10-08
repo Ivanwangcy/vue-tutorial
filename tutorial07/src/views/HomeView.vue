@@ -1,5 +1,5 @@
 <template lang="html">
-  <div>
+  <div @click="randomTitle">
     <img class="logo" src="../assets/logo.png"/>
     <h1>
     <i class="fa fa-camera-retro"></i>
@@ -9,9 +9,10 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
-  computed: mapGetters(['msg'])
+  computed: mapGetters(['msg']),
+  methods: mapActions(['randomTitle'])
 }
 </script>
