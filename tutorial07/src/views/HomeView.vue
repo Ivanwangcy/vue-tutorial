@@ -13,6 +13,22 @@ import { mapGetters, mapActions } from 'vuex'
 
 export default {
   computed: mapGetters(['msg']),
-  methods: mapActions(['randomTitle'])
+  methods: mapActions(['randomTitle', 'loading']),
+  created() {
+
+    var data = {
+      params: {
+        functionId: 'login/testLogin',
+        body: '{"jdPin":"jd_57593b3c2bc17"}',
+      }
+    }
+    this.$http.get('/client', data)
+    .then((response) => {
+      console.log(response);
+    }).catch((error) => {
+
+    })
+  }
+
 }
 </script>

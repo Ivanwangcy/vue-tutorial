@@ -12,6 +12,8 @@ body {
     font-family: Source Sans Pro, Helvetica, sans-serif;
     text-align: center;
 
+    transform: translateZ(50px);
+
     .logo {
       width: 200px;
       height: 200px;
@@ -22,6 +24,7 @@ body {
       align-items: center;
       justify-content: center;
       flex-flow: column;
+      // background-color: blue;
     }
     .footer{
       width: 100vw;

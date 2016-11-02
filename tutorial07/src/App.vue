@@ -1,16 +1,22 @@
 <template>
   <div id="app">
+    <!-- 过度 -->
     <transition name="fade" mode="out-in">
       <router-view class="view"></router-view>
     </transition>
 
-    <div class="footer">
-      <router-link to="/home"><i class="fa fa-desktop"></i></router-link>
-      <router-link to="/about"><i class="fa fa-book"></i></router-link>
-    </div>
+    <nav-footer></nav-footer>
   </div>
 </template>
+<script type="text/javascript">
+  import navFooter from './components/NavFooter.vue'
 
+  export default {
+    components: {
+      navFooter
+    }
+  }
+</script>
 
 <style lang="sass">
   @import "./style.scss"

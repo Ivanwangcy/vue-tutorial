@@ -1,5 +1,23 @@
 var path = require('path')
 var webpack = require('webpack')
+var autoprefixer = require('autoprefixer');
+
+//获取本地IP地址
+//获取本地IP地址
+var os = require('os');
+var interfaces = os.networkInterfaces();
+var IPv4 = '0.0.0.0'
+for (var key in interfaces) {
+  if(key == 'en0' || key == 'eth0' || os.platform() == 'win32'){
+    interfaces[key].forEach(function(details){
+      if (details.family == 'IPv4') {
+        IPv4 = details.address;
+      }
+    });
+    break;
+  }
+}
+console.log('----------local IP: '+ IPv4);
 
 module.exports = {
   entry: './src/main.js',
@@ -24,12 +42,13 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: 'style!css',
+        loader: 'style!css?importLoaders=1!postcss',
         exclude: /node_modules/
       },
       {
-        test: /\.scss$/,
-        loaders: ['style', 'css?sourceMap', 'sass?sourceMap']
+        test: /\.s[a|c]ss$/,
+        loader: 'style!css?importLoaders=1!postcss!sass',
+        // loaders: ['style', ['css?sourceMap&importLoaders=1&-autoprefixer', 'postcss-loader?pack=cleaner', 'sass?sourceMap']]
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
@@ -49,9 +68,32 @@ module.exports = {
       }
     ]
   },
+  vue: {
+  loaders: {
+      sass: 'style!css!postcss!sass'
+    }
+  },
+  // postcss: [ autoprefixer({ browsers: ['last 3 versions'] }) ],
+  postcss: [ autoprefixer({browsers: ['iOS 7', 'Android 3']}) ],
   devServer: {
     historyApiFallback: true,
-    noInfo: true
+    noInfo: true,
+    host: IPv4,
+    // quiet: true,
+    contentBase: './',
+    //其实很简单的，只要配置这个参数就可以了, 代理服务器地址
+    proxy: {
+      '/user': {
+        target: 'http://192.168.253.10:8080/',
+        secure: false,
+        changeOrigin: true
+      },
+      '/client': {
+        target: 'http://testpdjm.jd.com/',
+        secure: false,
+        changeOrigin: true
+      }
+    }
   },
   devtool: '#eval-source-map'
 }
