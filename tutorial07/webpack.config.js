@@ -78,7 +78,7 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     noInfo: true,
-    host: IPv4,
+    // host: IPv4,
     // quiet: true,
     contentBase: './',
     //其实很简单的，只要配置这个参数就可以了, 代理服务器地址
